@@ -21,7 +21,15 @@
       display: grid;
       grid-gap: 20px;
       border: 10px solid var(--yellow);
-      grid-template-columns: repeat(auto-fit, 150px);
+      /* Minmax can replace the use for media queries, because 1fr as the maximum will fill the space
+      but the 150px will keep its minimum for the content you want inside it, and the grid will respond
+      accordingly */
+      /* Using auto-fit instead of fill, will fit the items to the space, where as auto-fill may leave a gap
+      if there's space available */
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+      /* grid-template-columns: fit-content(100px) 150px 150px 150px; */
+      /* grid-template-columns: auto 150px 150px 150px; */
     }
   </style>
 </body>
